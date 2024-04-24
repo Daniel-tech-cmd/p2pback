@@ -482,6 +482,7 @@ const joinTrade = async (req, res) => {
     const trade = await Trade.findOne({ id: req.body.id });
     if (!trade) {
       return res.status(404).json({ error: "Trade not found" });
+      console.log("no");
     }
     if (trade.buyer == user.username || trade.seller == user.username) {
       return res.status(200).json(trade);
