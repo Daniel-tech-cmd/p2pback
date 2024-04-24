@@ -17,6 +17,7 @@ app.use(express.json({ limit: "200mb" }));
 
 const userRoutes = require("./routes/user");
 const transact = require("./routes/transactroute");
+const wallet = require("./routes/wallets");
 
 require("dotenv").config();
 app.use((req, res, next) => {
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/transact", transact);
+app.use("/api/wallet", wallet);
 
 mongoose
   .connect(process.env.STRING)
