@@ -4,6 +4,8 @@ const {
   deposit,
   trade,
   joinTrade,
+  allTrade,
+  approvedeposit,
   checkTrade,
 } = require("../controllers/transact");
 const { isAdmin, auth } = require("../middleware/auth");
@@ -16,8 +18,8 @@ router.patch("/checktrade/:id", auth, checkTrade);
 // router.patch("/reinvest/:id", reinvest);
 // router.patch("/support", support);
 
-// router.get('/adminUsers', isAdmin, getAdmins);
-// router.patch("/approvedepo/:id", isAdmin, approvedeposit);
+router.get("/all", isAdmin, allTrade);
+router.patch("/approvedepo/:id", isAdmin, approvedeposit);
 // router.patch("/declinedepo/:id", isAdmin, declinedepo);
 // router.patch("/approvedwith/:id", isAdmin, approvewithdraw);
 // router.patch("/declinedwith/:id", isAdmin, declinewith);

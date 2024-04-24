@@ -204,6 +204,7 @@ const userSchema = new Schema(
     city: {
       type: String,
     },
+    trades: [{ id: { type: String } }],
   },
   { timestamps: true }
 );
@@ -255,9 +256,9 @@ userSchema.statics.login = async function (email, password) {
   if (!match) {
     throw Error("incorrect password!");
   }
-  delete user.password;
+  delete user._doc.password;
   const data = {
-    ...user,
+    ...user._doc,
   };
   return data;
 };

@@ -17,6 +17,10 @@ const tradeSchema = new Schema(
       type: String,
       // required: true,
     },
+    startedby: {
+      type: String,
+      required: true,
+    },
     assettobuy: {
       type: Object,
       required: true,
@@ -28,10 +32,13 @@ const tradeSchema = new Schema(
       },
     },
     assettosell: {
-      type: String,
+      type: Object,
       required: true,
       amount: {
         type: Number,
+      },
+      name: {
+        type: String,
       },
     },
     whopaysfee: {

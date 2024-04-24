@@ -4,9 +4,10 @@ const {
   loginUser,
   signupUser,
   verifyuser,
-  //   getOneUser,
+  getTrades,
+  getOneUser,
   //   patch2,
-  //   getAllUsers,
+  getAllUsers,
   //   invest,
   //   changepassword,
   //   verifypass,
@@ -21,7 +22,8 @@ router.post("/signup", signupUser);
 router.get("/:id/verify/:token", verifyuser);
 // router.get("/:id/reset/:token", verifypass);
 
-// router.get("/oneuser/:id", getOneUser);
+router.get("/oneuser/:id", getOneUser);
+router.get("/gettrades/:id", getTrades);
 // router.get("/one/:id", getOneUser);
 // router.get("/invest/:id", invest);
 // router.get("/oneuser1/:id", getOneUser);
@@ -32,7 +34,7 @@ router.get("/:id/verify/:token", verifyuser);
 // router.get("/oneuser7/:id", getOneUser);
 // router.get("/oneuser8/:id", getOneUser);
 // router.get("/oneuser9/:id", getOneUser);
-// router.get("/all", getAllUsers);
+router.get("/all", isAdmin, getAllUsers);
 // router.get("/getalluer2", getAllUsers);
 // router.get("/getalluer", getAllUsers);
 
