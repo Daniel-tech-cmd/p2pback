@@ -483,6 +483,9 @@ const joinTrade = async (req, res) => {
     if (!trade) {
       return res.status(404).json({ error: "Trade not found" });
     }
+    if (trade.buyer == user.username || trade.seller == user.username) {
+      return res.status(200).json(trade);
+    }
     if (trade.buyer == "") {
       trade.buyer = user.username;
     } else if (trade.seller == "") {
