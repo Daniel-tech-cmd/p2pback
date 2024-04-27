@@ -6,7 +6,7 @@ const {
   verifyuser,
   getTrades,
   getOneUser,
-  //   patch2,
+  patch2,
   getAllUsers,
   //   invest,
   //   changepassword,
@@ -39,7 +39,7 @@ router.get("/all", isAdmin, getAllUsers);
 // router.get("/getalluer", getAllUsers);
 
 // router.patch("/updateuser/:id", isAdmin, patch2);
-// router.patch("/update/:id", patch2);
+router.patch("/update/:id", auth, patch2);
 
 // router.get('/adminUsers', isAdmin, getAdmins);
 

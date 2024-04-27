@@ -308,6 +308,29 @@ const getTrades = async (req, res) => {
     return res.status(404).json({ error: "error while gettin trades!" });
   }
 };
+
+const patch2 = async (req, res) => {
+  const userid = req.params.id;
+  const { data } = req.body;
+  try {
+    const user = await User.findById(userid);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const user2 = await User.findByIdAndUpdate(
+      { _id: userid },
+      {
+        ...req.body,
+      },
+      { new: false }
+    );
+    if (!user2) {
+      return res.status(404).json({ error: "failed to update" });
+    }
+    res.status(200).json(user2);
+  } catch {}
+};
 module.exports = {
   loginUser,
   // changepassword,
@@ -315,7 +338,7 @@ module.exports = {
   verifyuser,
   getOneUser,
   getTrades,
-  // patch2,
+  patch2,
   // invest,
   getAllUsers,
   // verifypass,
