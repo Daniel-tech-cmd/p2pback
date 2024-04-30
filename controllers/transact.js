@@ -466,6 +466,132 @@ const trade = async (req, res) => {
       { ...user },
       { new: false }
     );
+    try {
+      const url = `Hello ${user.username}
+  
+            Your Trade has been creatd succesfully.
+  
+             Trade id: ${trade.id}
+  
+  
+            `;
+      const html = `<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+          <style>
+          @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+            body {
+              font-family: 'Jost', sans-serif;
+              text-align: center;
+              margin: 0;
+              padding:15px;
+              background:#1daad9;
+            }
+        body *{
+          font-family:"Jost",arial;
+        }
+            .container {
+              max-width: 600px;
+              margin: 20px auto;
+              padding: 20px;
+              background-color: #fff;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              background:#e5e5e5;
+            }
+        
+            h1 {
+              color: #333;
+            }
+        
+            p {
+              color: #666;
+              margin-bottom: 20px;
+            }
+        
+            a {
+              display: inline-block;
+              padding: 10px 20px;
+              margin: 10px 0;
+              color: #fff;
+              text-decoration: none;
+              background-color: #3498db;
+              border-radius: 5px;
+            }
+        
+            a:hover {
+              background-color: #2980b9;
+            }
+        
+            b {
+              color: #333;
+            }
+        
+            img {
+              max-width: 100%;
+              height: auto;
+              margin:auto;
+            }
+            .imgcont{
+              display:flex;
+              justify-content:center;
+            }
+            footer{
+              background:#0066ff;
+              color:#fff;
+              text-align:center;
+              padding:15px 0;
+              margin-top:20px;
+              height:fit-content;
+            }
+            .link{
+              padding: 0.625rem 1rem;
+    font-size: 0.813rem;
+    background: #9568ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: capitalize;
+    border-radius: 5px;
+            }
+          </style>
+        </head>
+        
+        <body>
+          <div class="container">
+          <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+            
+            <div>
+            <p>Hello ${user.username}<p>
+            <p>
+  
+            Your Trade has been creatd succesfully.
+  
+            </p>
+            <p><b> Trade id: ${trade.id}<b/></p>
+             
+            <a class="link" href="https://supayroom.com/account/trade?id=${id}">Track your Trade</a>
+            
+            <p></p>
+            </div>
+            <footer> &copy; 2024  PeakFund. All rights reserved.<footer>
+          </div>
+          
+        </body>
+        
+        </html>
+        `;
+      await sendEmail(user.email, "Trade", url, html);
+    } catch (error) {
+      console.log(error);
+      return res.status(404).json({ error: "failed to update" });
+    }
     return res.status(200).json(trade);
   } catch (error) {
     console.log(error);
