@@ -828,11 +828,18 @@ const approvedeposit = async (req, res) => {
     }
 
     // user.balance = Number(user.balance) + Number(amount);
-
-    user.assets.push({
-      amount: amount,
-      name: method,
-    });
+    const inde = user.assets.findIndex((obj) => obj.name === method);
+    if (inde !== -1) {
+      user.assets[inde] = {
+        amount: Number(user.assets[inde].amount) + Number(amount),
+        name: method,
+      };
+    } else {
+      user.assets.push({
+        amount: amount,
+        name: method,
+      });
+    }
 
     try {
       const user2 = await User.findByIdAndUpdate(
