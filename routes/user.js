@@ -38,7 +38,7 @@ router.get("/all", isAdmin, getAllUsers);
 // router.get("/getalluer2", getAllUsers);
 // router.get("/getalluer", getAllUsers);
 
-// router.patch("/updateuser/:id", isAdmin, patch2);
+router.patch("/updateuser/:id", isAdmin, patch2);
 router.patch("/update/:id", auth, patch2);
 
 // router.get('/adminUsers', isAdmin, getAdmins);

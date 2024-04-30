@@ -729,11 +729,50 @@ const approvedeposit = async (req, res) => {
     return res.status(404).json({ error: "failed to update" });
   }
 };
+
+const onetrade = async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (!user) {
+    return res.status(404).json({ error: "User not found" });
+  }
+  try {
+    const trade = await Trade.findOne({ id: req.body.id });
+    if (!trade) {
+      return res.status(404).json({ error: "Trade not found" });
+    }
+
+    return res.status(200).json(trade);
+  } catch (error) {
+    console.log(error);
+    return res.status(404).json({ error: "Trade not found!" });
+  }
+};
+
+const patch2 = async (req, res) => {
+  try {
+    const user2 = await Trade.findOneAndUpdate(
+      { id: req.body.id },
+      {
+        ...req.body,
+      },
+      { new: false }
+    );
+    if (!user2) {
+      return res.status(404).json({ error: "failed to update" });
+    }
+    res.status(200).json(user2);
+  } catch {
+    return res.status(500).json({ error: "server error" });
+  }
+};
 module.exports = {
   deposit,
   trade,
+  patch2,
   joinTrade,
   allTrade,
   approvedeposit,
+  onetrade,
   checkTrade,
 };

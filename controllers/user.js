@@ -329,7 +329,9 @@ const patch2 = async (req, res) => {
       return res.status(404).json({ error: "failed to update" });
     }
     res.status(200).json(user2);
-  } catch {}
+  } catch {
+    return res.status(500).json({ error: "server error" });
+  }
 };
 module.exports = {
   loginUser,
