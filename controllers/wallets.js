@@ -40,8 +40,8 @@ const createwallet = async (req, res) => {
       });
       if (img) {
         uploadedqr = {
-          public_id: photo.public_id,
-          url: photo.url,
+          public_id: img.public_id,
+          url: img.url,
         };
       }
     } catch (error) {
