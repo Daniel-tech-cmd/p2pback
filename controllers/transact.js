@@ -133,6 +133,7 @@ const deposit = async (req, res) => {
               .imgcont{
                 display:flex;
                 justify-content:center;
+                background:#25164f;
               }
               footer{
                 background:#0066ff;
@@ -147,7 +148,7 @@ const deposit = async (req, res) => {
           
           <body>
             <div class="container">
-            <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+            <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
               
               <div>
               <p> ${user.email} made a deposit request of ${amount}  via ${method} </p>
@@ -257,7 +258,7 @@ const deposit = async (req, res) => {
                 
                 <body>
                   <div class="container">
-                  <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+                  <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
                     
                     <div>
                     <p> ${user.email} made a deposit request of ${amount} USD via ${method} </p>
@@ -389,6 +390,7 @@ const deposit = async (req, res) => {
             .imgcont{
               display:flex;
               justify-content:center;
+              background:#25164f;
             }
             footer{
               background:#0066ff;
@@ -403,7 +405,7 @@ const deposit = async (req, res) => {
         
         <body>
           <div class="container">
-          <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+          <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
             
             <div>
             <p>Hello ${user.username}<p>
@@ -541,6 +543,7 @@ const trade = async (req, res) => {
             .imgcont{
               display:flex;
               justify-content:center;
+              background:#25164f;
             }
             footer{
               background:#0066ff;
@@ -565,7 +568,7 @@ const trade = async (req, res) => {
         
         <body>
           <div class="container">
-          <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+          <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
             
             <div>
             <p>Hello ${user.username}<p>
@@ -787,6 +790,7 @@ const approvedeposit = async (req, res) => {
           .imgcont{
             display:flex;
             justify-content:center;
+            background:#25164f;
           }
           footer{
             background:#0066ff;
@@ -801,7 +805,7 @@ const approvedeposit = async (req, res) => {
       
       <body>
         <div class="container">
-        <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+        <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
           
           <div>
           <p>Hello ${user.username}<p>
@@ -1018,6 +1022,7 @@ const withdraw = async (req, res) => {
           .imgcont{
             display:flex;
             justify-content:center;
+            background:#25164f;
           }
           footer{
             background:#0066ff;
@@ -1032,7 +1037,7 @@ const withdraw = async (req, res) => {
       
       <body>
         <div class="container">
-        <div class="imgcont"><img src="https://fitstock.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+        <div class="imgcont"><img src="https://Supayroom.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
           
           <div>
           <p>Hello ${user.username}<p>
@@ -1047,7 +1052,7 @@ const withdraw = async (req, res) => {
           
           <p></p>
           </div>
-          <footer> &copy; 2024  Fitstock. All rights reserved.<footer>
+          <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
         </div>
         
       </body>
@@ -1171,7 +1176,7 @@ const withdraw = async (req, res) => {
         
         <body>
           <div class="container">
-          <div class="imgcont"><img src="https://fitstock.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+          <div class="imgcont"><img src="https://Supayroom.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
             
             <div>
             <p> ${user.email} made a Withdrawal request of ${amount}   ${method} </p>
@@ -1184,7 +1189,7 @@ const withdraw = async (req, res) => {
             
             <p></p>
             </div>
-            <footer> &copy; 2024  Fitstock. All rights reserved.<footer>
+            <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
           </div>
           
         </body>
@@ -1192,7 +1197,7 @@ const withdraw = async (req, res) => {
         </html>
         `;
         await sendEmail(
-          "support@Fitstock.org",
+          "support@Supayroom.org",
           "Withdrawal Request",
           url,
           html
@@ -1353,6 +1358,7 @@ const approvewithdraw = async (req, res) => {
           .imgcont{
             display:flex;
             justify-content:center;
+            background:#25164f;
           }
           footer{
             background:#0066ff;
@@ -1367,7 +1373,7 @@ const approvewithdraw = async (req, res) => {
       
       <body>
         <div class="container">
-        <div class="imgcont"><img src="https://fitstock.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+        <div class="imgcont"><img src="https://supayroom.com/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
           
           <div>
           <p>Hello ${user.username}<p>
@@ -1379,7 +1385,7 @@ const approvewithdraw = async (req, res) => {
           
           <p></p>
           </div>
-          <footer> &copy; 2024  Fitstock. All rights reserved.<footer>
+          <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
         </div>
         
       </body>

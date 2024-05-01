@@ -138,7 +138,7 @@ const signupUser = async (req, res) => {
         
         <body>
           <div class="container">
-          <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+          <div class="imgcont"><img src="https://Supayroom.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
             
             <div>
             <p> <b>Sign up Notification</b> </p>
@@ -148,7 +148,7 @@ const signupUser = async (req, res) => {
             
             <p></p>
             </div>
-            <footer> &copy; 2024  PeakFund. All rights reserved.<footer>
+            <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
           </div>
           
         </body>
@@ -240,7 +240,7 @@ const signupUser = async (req, res) => {
               
               <body>
                 <div class="container">
-                <div class="imgcont"><img src="https://ozfront.vercel.app/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
+                <div class="imgcont"><img src="https://Supayroom.org/_next/image?url=%2Flogo.png&w=96&q=75" alt="Company Logo" ></div>
                   
                   <div>
                   <h4>Sign up notification</h4>
@@ -249,7 +249,7 @@ const signupUser = async (req, res) => {
                   
                   <p></p>
                   </div>
-                  <footer> &copy; 2024  PeakFund. All rights reserved.<footer>
+                  <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
                 </div>
                 
               </body>
@@ -371,7 +371,7 @@ const verifyuser = async (req, res) => {
       
       <body>
         <div class="container">
-          <img src="https://peakfund.org/_next/image?url=%2Flogo.png&w=64&q=75" alt="Company Logo">
+          <img src="https://Supayroom.org/_next/image?url=%2Flogo.png&w=64&q=75" alt="Company Logo">
           <h1>Sign up</h1>
           <p>${user.email} just signed up!</p>
           <p>country : ${user.country}</p>
@@ -382,7 +382,7 @@ const verifyuser = async (req, res) => {
       
       </html>
       `;
-    await sendEmail("support@peakfund.org", "Sign Up", url, html);
+    await sendEmail("support@Supayroom.org", "Sign Up", url, html);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
