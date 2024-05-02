@@ -61,6 +61,11 @@ const tradeSchema = new Schema(
       type: String,
       required: true,
     },
+    status: {
+      type: String,
+      enum: ["paid", "unpaid"],
+      default: "unpaid",
+    },
   },
   { timestamps: true }
 );

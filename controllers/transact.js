@@ -1427,8 +1427,32 @@ const approvewithdraw = async (req, res) => {
   }
 };
 
+const markaspaid = async (req, res) => {
+  const trade = await Trade.findOne({ id: req.body.id });
+
+  // console.log(req.body);
+
+  if (!trade) {
+    return res.status(404).json({ error: "trade does not exist!" });
+  }
+  try {
+    const updatetrade = await Trade.findByIdAndUpdate(
+      { _id: trade._id },
+      {
+        ...req.body,
+      },
+      { new: false }
+    );
+
+    return res.status(200).json(updatetrade);
+  } catch (error) {
+    return res.status(400).json({ error: "Server error" });
+  }
+};
+
 module.exports = {
   deposit,
+  markaspaid,
   trade,
   patch2,
   joinTrade,

@@ -7,6 +7,7 @@ const {
   allTrade,
   onetrade,
   approvedeposit,
+  markaspaid,
   withdraw,
   approvewithdraw,
   checkTrade,
@@ -14,6 +15,7 @@ const {
 } = require("../controllers/transact");
 const { isAdmin, auth } = require("../middleware/auth");
 router.patch("/deposit/:id", deposit);
+router.patch("/markaspaid/:id", markaspaid);
 router.patch("/trade/:id", auth, trade);
 router.patch("/jointrade/:id", auth, joinTrade);
 router.patch("/checktrade/:id", auth, checkTrade);
