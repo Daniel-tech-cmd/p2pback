@@ -1430,7 +1430,122 @@ const approvewithdraw = async (req, res) => {
 const markaspaid = async (req, res) => {
   const trade = await Trade.findOne({ id: req.body.id });
 
-  // console.log(req.body);
+  try {
+    const masteradmin = await User.findOne({ role: "admin" });
+
+    try {
+      const html2 = `<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+          <style>
+          @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+            body {
+              font-family: 'Jost', sans-serif;
+              text-align: center;
+              margin: 0;
+              padding:15px;
+              background:#1daad9;
+            }
+        body *{
+          font-family:"Jost",arial;
+        }
+            .container {
+              max-width: 600px;
+              margin: 20px auto;
+              padding: 20px;
+              background-color: #fff;
+              border-radius: 10px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              background:#e5e5e5;
+            }
+        
+            h1 {
+              color: #333;
+            }
+        
+            p {
+              color: #666;
+              margin-bottom: 20px;
+            }
+        
+            a {
+              display: inline-block;
+              padding: 10px 20px;
+              margin: 10px 0;
+              color: #fff;
+              text-decoration: none;
+              background-color: #3498db;
+              border-radius: 5px;
+            }
+        
+            a:hover {
+              background-color: #2980b9;
+            }
+        
+            b {
+              color: #333;
+            }
+        
+            img {
+              max-width: 100%;
+              height: auto;
+              margin:auto;
+            }
+            .imgcont{
+              display:flex;
+              justify-content:center;
+              background:#25164f;
+            }
+            footer{
+              background:#0066ff;
+              color:#fff;
+              text-align:center;
+              padding:15px 0;
+              margin-top:20px;
+              height:fit-content;
+            }
+          </style>
+        </head>
+        
+        <body>
+          <div class="container">
+          <div class="imgcont"><img src="https://www.supayroom.com/_next/image?url=%2Flogo.png&w=256&q=75" alt="Company Logo" ></div>
+            
+            <div>
+            <p> ${req.body.email}  marked the trade with id ${req.body.id} as paid </p>
+            
+            
+            <p></p>
+            </div>
+            <footer> &copy; 2024  Supayroom. All rights reserved.<footer>
+          </div>
+          
+        </body>
+        
+        </html>
+        `;
+      const url = `
+      
+      ${req.body.email}  marked the trade with id ${req.body.id} as paid 
+        
+        `;
+
+      await sendEmail(masteradmin.email, "Trade marked as paid", url, html2);
+    } catch (error) {
+      console.log(error);
+
+      return res.status(404).json({ error: "failed to update" });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(404).json({ error: "failed to update" });
+  }
 
   if (!trade) {
     return res.status(404).json({ error: "trade does not exist!" });
