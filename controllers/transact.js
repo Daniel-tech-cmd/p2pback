@@ -1434,7 +1434,7 @@ const markaspaid = async (req, res) => {
     const masteradmin = await User.findOne({ role: "admin" });
 
     try {
-      const html2 = `<!DOCTYPE html>
+      const html2 = ` <!DOCTYPE html>
         <html lang="en">
         
         <head>
