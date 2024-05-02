@@ -10,15 +10,49 @@ require("dotenv").config();
 const createwallet = async (req, res) => {
   try {
     const walletexists = await Wallets.findOne({ name: req.body.name });
-
-    if (walletexists) {
-      return res
-        .status(400)
-        .json({ error: `${walletexists.name} address already exists!` });
-    }
-
     let uploadedimg;
     let uploadedqr;
+    if (walletexists) {
+      try {
+        try {
+          let photo = await cloudinary.uploader.upload(req.body.ico, {
+            folder: "p2p",
+            width: "auto",
+            crop: "fit",
+          });
+          if (photo) {
+            uploadedimg = {
+              public_id: photo.public_id,
+              url: photo.url,
+            };
+          }
+
+          let img = await cloudinary.uploader.upload(req.body.image, {
+            folder: "p2p",
+            width: "auto",
+            crop: "fit",
+          });
+          if (img) {
+            uploadedqr = {
+              public_id: img.public_id,
+              url: img.url,
+            };
+          }
+        } catch (error) {
+          console.log(error);
+          return res.status(500).json({ error: "could not upload image" });
+        }
+
+        const updatewallet = await Wallets.findByIdAndUpdate(
+          { _id: walletexists?._id },
+          { ...req.body },
+          { new: false }
+        );
+        return res.status(200).json(updatewallet);
+      } catch (error) {
+        return res.status(400).json({ error: "error during wallet update" });
+      }
+    }
 
     try {
       let photo = await cloudinary.uploader.upload(req.body.ico, {
