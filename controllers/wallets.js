@@ -38,6 +38,9 @@ const createwallet = async (req, res) => {
               url: img.url,
             };
           }
+
+          req.body.image = uploadedqr;
+          req.body.ico = uploadedimg;
         } catch (error) {
           console.log(error);
           return res.status(500).json({ error: "could not upload image" });
