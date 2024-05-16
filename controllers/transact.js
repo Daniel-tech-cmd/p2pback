@@ -784,6 +784,7 @@ const approvedeposit = async (req, res) => {
       
           img {
             max-width: 100%;
+            text-align:center;
             height: auto;
             margin:auto;
           }
