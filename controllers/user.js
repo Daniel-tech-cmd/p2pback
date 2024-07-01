@@ -28,12 +28,16 @@ const loginUser = async (req, res) => {
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }
-
+    let user2 = {};
+    user2._id = user._id;
+    user2.role = user.role;
+    (user2.email = user.email), (user2.balance = user.balance);
+    // console.log(user);
     const token = createToken(user._id);
 
-    user.token = token;
+    user2.token = token;
 
-    return res.status(200).json(user);
+    return res.status(200).json(user2);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
