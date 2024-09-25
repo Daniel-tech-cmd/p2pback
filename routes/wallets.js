@@ -10,6 +10,6 @@ const { isAdmin, auth } = require("../middleware/auth");
 router.patch("/createwallet/:id", isAdmin, createwallet);
 router.patch("/updatewallet/:id", isAdmin, updatewallet);
 router.patch("/deletewallet/", deletewallet);
-router.get("/all", getall);
+router.get("/allwallet", getall);
 
 module.exports = router;
