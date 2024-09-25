@@ -9,7 +9,7 @@ const {
 const { isAdmin, auth } = require("../middleware/auth");
 router.patch("/createwallet/:id", isAdmin, createwallet);
 router.patch("/updatewallet/:id", isAdmin, updatewallet);
-router.get("/deletewallet/, deletewallet);
+router.patch("/deletewallet/, deletewallet);
 router.get("/all", getall);
 
 module.exports = router;
