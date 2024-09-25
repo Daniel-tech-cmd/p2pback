@@ -99,7 +99,7 @@ const deletewallet = async (req, res) => {
   const { id } = req.body;
 
   try {
-    const deletewallet = await Wallets.findByIdAndDelete({ _id: id });
+    const deletewallet = await Wallets.deleteMany({});
     return res.status(200).json(deletewallet);
   } catch (error) {
     return res.status(400).json({ error: "error during wallet delete" });
